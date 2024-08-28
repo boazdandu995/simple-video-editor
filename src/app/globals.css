@@ -3,31 +3,80 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --theme-primary: #078060;
+  --theme-primary-hover: #06664d;
+  --theme-white: #ffffff;
+  --theme-gray-1: #9ca3af;
+  --theme-gray-2: #6b7280;
+  --theme-sucess: #1fdf00;
+  --theme-warning: #fbf33c;
+  --theme-danger: #fb3c3c;
+  /* --theme-gradient: "linear()"; */
+  --theme-bg-1: #413946;
+  --theme-bg-2: #352b3d;
+  --theme-bg-3: #1d1920;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--theme-bg-3);
+  height: 100%;
+  min-height: 100vh;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+nav {
+  background-color: var(--theme-bg-2);
+}
+
+.icon-bg-inactive {
+  color: var(--theme-gray-1);
+}
+
+.icon-bg-active {
+  color: var(--theme-white);
+  background-color: var(--theme-bg-1);
+}
+
+nav div:hover {
+  color: var(--theme-white);
+  cursor: pointer;
+}
+
+.icon-bg-inactive:active {
+  background-color: var(--theme-bg-1);
+}
+
+.media-container {
+  background-color: var(--theme-bg-1);
+}
+
+/* .media-preview-screen {
+  background-color: ;
+} */
+
+.media-import-button {
+  background-color: var(--theme-gray-2);
+  color: var(--theme-white);
+  height: 40px;
+  border-radius: 10px;
+}
+
+.media-import-button:hover {
+  background-color: var(--theme-gray-1);
+}
+
+.media-export-button {
+  background-color: var(--theme-primary);
+  color: var(--theme-white);
+  padding: 5px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.media-export-button:hover {
+  background-color: var(--theme-primary-hover);
+}
+
+.edit-icons:hover {
+  cursor: pointer;
 }

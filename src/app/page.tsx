@@ -1,112 +1,117 @@
+"use client"
+import { Icons, IllustrationImage } from "@/components/Icons";
 import Image from "next/image";
+import { FaPlay } from "react-icons/fa";
+import { IoPlayForward, IoPlayBack } from "react-icons/io5";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { CgArrowsExpandRight } from "react-icons/cg";
+import { useState } from "react";
+
 
 export default function Home() {
+  const [isHovered, setHovered] = useState(false);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex flex-col w-full min-h-screen max-h-screen">
+      <div className="flex flex-1 w-full">
+        <div className="w-2/6 h-full media-container py-5 px-5 relative flex flex-col gap-5">
+          <div className="flex gap-3 items-center text-sm">
+            <p className="icon-bg-active">All</p>
+            <p className="icon-bg-inactive">Videos</p>
+            <p className="icon-bg-inactive">Audios</p>
+            <p className="icon-bg-inactive">Images</p>
+          </div>
+          <button className="media-import-button">Import Media</button>
+          <div className="flex-1 flex items-center justify-center">
+            <div className="flex flex-col gap-2 items-center">
+              <Image src={IllustrationImage} width={500} height={500} alt="" className="w-[140px] h-[140px]" />
+              <p className="text-xs text-center text-[var(--theme-gray-2)]">
+                Drag and drop your media from your device to import
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex-1 h-full flex flex-col justify-between px-5 gap-2">
+          <div className="flex justify-between items-center py-4">
+            <div className="text-white text-sm font-semibold">
+              <p>Untitled Project</p>
+            </div>
+            <button className="media-export-button flex items-center justify-center gap-1">Export <MdKeyboardArrowDown className="text-2xl" /></button>
+          </div>
+          <div className="h-[100%] flex justify-center items-center">
+            <div className="w-4/6 h-full bg-[var(--theme-gray-1)]"></div>
+          </div>
+          <div className="py-4">
+            <div className="flex h-full justify-center items-center text-[var(--theme-gray-1)] gap-4 text-2xl relative">
+              <IoPlayBack className="text-3xl hover:cursor-pointer" />
+              <FaPlay className="hover:cursor-pointer" />
+              <IoPlayForward className="text-3xl hover:cursor-pointer" />
+              <CgArrowsExpandRight className="absolute right-[17%] hover:cursor-pointer" />
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="h-2/6 w-full px-5 border-t border-t-[--theme-gray-2]">
+        <div className="flex flex-col w-full">
+          <div className="w-full flex items-center justify-between py-3">
+            <div className="flex items-center gap-4 w-2/6">
+              <Image src={!isHovered ? Icons.UndoIcon : Icons.UndoIconActive} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={!isHovered ? Icons.RedoIcon : Icons.RedoIconActive} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.CutIcon} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.Clone} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.MoveUpIcon} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.MoveDown} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.DeleteIcon} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+            </div>
+            <div className="w-2/6">
+              <p className="text-white text-xs text-center">00:00:00 / 00:15:00</p>
+            </div>
+            <div className="flex items-center gap-4 w-2/6 justify-end">
+              <Image src={Icons.ZoomIn} width={"100"} height={"100"} className="h-[12px] w-[12px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.ZoomOut} width={"100"} height={"100"} className="h-[15px] w-[15px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+              <Image src={Icons.FitIcon} width={"100"} height={"100"} className="h-[18px] w-[18px] edit-icons" alt="" onMouseEnter={() => {
+                setHovered(true)
+              }} onMouseLeave={() => {
+                setHovered(false)
+              }} />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
